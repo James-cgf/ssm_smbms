@@ -33,11 +33,6 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-
-
-
-
-
     <!--    配置监听器
     ContextLoaderListener的作用就是启动Web容器时，自动装配
     ApplicationContext.xml的配置信息。因为它实现了ServletContextListener这个接口，
