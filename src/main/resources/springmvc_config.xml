@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--    扫描注解包-->
     <context:component-scan base-package="cn.smbms.controller"/>
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven></mvc:annotation-driven>
 
 
     <!--    配置试图解析器-->
