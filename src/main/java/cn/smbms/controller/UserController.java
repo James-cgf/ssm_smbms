@@ -199,6 +199,7 @@ public class UserController {
      */
     @RequestMapping(value = "modify.html",method = RequestMethod.POST)
     public String saveModify(User user,HttpSession session){
+        System.out.println("修改方法=========================");
         user.setModifyDate(new Date());  //修改时间
         User user_login= (User) session.getAttribute(Constants.USER_SESSION);
         user.setModifyBy(user_login.getId());
