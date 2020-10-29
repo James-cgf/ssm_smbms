@@ -31,6 +31,13 @@ public class UserController {
     RoleService roleService;
 
     /**
+     * 李四的分支
+     */
+    public String lisi(){
+
+        return "lisi";
+    }
+    /**
      * 跳转登录页面
      * /login.html  ;伪静态命名
      *
