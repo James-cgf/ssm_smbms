@@ -52,10 +52,11 @@ $(function(){
 		var obj = $(this);
 		window.location.href=path+"/jsp/user.do?method=view&uid="+ obj.attr("userid");
 	});
-	
+
+	//点击修改
 	$(".modifyUser").on("click",function(){
 		var obj = $(this);
-		window.location.href=path+"/jsp/user.do?method=modify&uid="+ obj.attr("userid");
+		window.location.href=path+"/user/modify.html?uid="+ obj.attr("userid");
 	});
 
 	$('#no').click(function () {

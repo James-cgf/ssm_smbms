@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import cn.smbms.dao.BaseDao;
 import cn.smbms.pojo.Role;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class RoleDaoImpl implements RoleDao{
 
 	@Override

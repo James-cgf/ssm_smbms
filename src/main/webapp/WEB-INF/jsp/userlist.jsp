@@ -11,7 +11,6 @@
 					<input name="method" value="query" class="input-text" type="hidden">
 					 <span>用户名：</span>
 					 <input name="queryname" class="input-text"	type="text" value="${queryUserName }">
-					 
 					 <span>用户角色：</span>
 					 <select name="queryUserRole">
 						<c:if test="${roleList != null }">
@@ -22,10 +21,10 @@
 						   </c:forEach>
 						</c:if>
 	        		</select>
-					 
+
 					 <input type="hidden" name="pageIndex" value="1"/>
 					 <input	value="查 询" type="submit" id="searchbutton">
-					 <a href="${pageContext.request.contextPath}/WEB-INF/jsp/useradd.jsp" >添加用户</a>
+					 <a href="/user/addUser.html" >添加用户</a>
 				</form>
             </div>
             <!--用户-->
@@ -63,9 +62,9 @@
 							<span>${user.userRoleName}</span>
 						</td>
 						<td>
-						<span><a class="viewUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
-						<span><a class="modifyUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
-						<span><a class="deleteUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
+						<span><a class="viewUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="/statics/images/read.png" alt="查看" title="查看"/></a></span>
+						<span><a class="modifyUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="/statics/images/xiugai.png" alt="修改" title="修改"/></a></span>
+						<span><a class="deleteUser" href="javascript:;" userid=${user.id } username=${user.userName }><img src="/statics/images/schu.png" alt="删除" title="删除"/></a></span>
 						</td>
 					</tr>
 				</c:forEach>

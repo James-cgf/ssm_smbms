@@ -1,5 +1,7 @@
 package cn.smbms.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class User {
@@ -8,6 +10,7 @@ public class User {
 	private String userName; //用户名称
 	private String userPassword; //用户密码
 	private Integer gender;  //性别
+	@DateTimeFormat(pattern = "yyyy-MM-dd")  //将字符串转为时间格式（强侵入式转换，后面会换写法）
 	private Date birthday;  //出生日期
 	private String phone;   //电话
 	private String address; //地址
@@ -112,5 +115,26 @@ public class User {
 	}
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", userCode='" + userCode + '\'' +
+				", userName='" + userName + '\'' +
+				", userPassword='" + userPassword + '\'' +
+				", gender=" + gender +
+				", birthday=" + birthday +
+				", phone='" + phone + '\'' +
+				", address='" + address + '\'' +
+				", userRole=" + userRole +
+				", createdBy=" + createdBy +
+				", creationDate=" + creationDate +
+				", modifyBy=" + modifyBy +
+				", modifyDate=" + modifyDate +
+				", age=" + age +
+				", userRoleName='" + userRoleName + '\'' +
+				'}';
 	}
 }

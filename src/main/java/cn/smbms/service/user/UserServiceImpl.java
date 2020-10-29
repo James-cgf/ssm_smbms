@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService{
 
 	@Resource
 	private UserDao userDao;
-	public UserServiceImpl(){
-		userDao = new UserDaoImpl();
-	}
+//	public UserServiceImpl(){
+//		userDao = new UserDaoImpl();
+//	}
 	@Override
 	public boolean add(User user) {
 		// TODO Auto-generated method stub

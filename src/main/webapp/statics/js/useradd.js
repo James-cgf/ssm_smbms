@@ -28,28 +28,28 @@ $(function(){
 	birthday.next().html("*");
 	userRole.next().html("*");
 	
-	$.ajax({
-		type:"GET",//请求类型
-		url:path+"/jsp/user.do",//请求的url
-		data:{method:"getrolelist"},//请求参数
-		dataType:"json",//ajax接口（请求url）返回的数据类型
-		success:function(data){//data：返回数据（json对象）
-			if(data != null){
-				userRole.html("");
-				var options = "<option value=\"0\">请选择</option>";
-				for(var i = 0; i < data.length; i++){
-					//alert(data[i].id);
-					//alert(data[i].roleName);
-					options += "<option value=\""+data[i].id+"\">"+data[i].roleName+"</option>";
-				}
-				userRole.html(options);
-			}
-		},
-		error:function(data){//当访问时候，404，500 等非200的错误状态码
-			validateTip(userRole.next(),{"color":"red"},imgNo+" 获取用户角色列表error",false);
-		}
-	});
-	
+	// $.ajax({
+	// 	type:"GET",//请求类型
+	// 	url:path+"/jsp/user.do",//请求的url
+	// 	data:{method:"getrolelist"},//请求参数
+	// 	dataType:"json",//ajax接口（请求url）返回的数据类型
+	// 	success:function(data){//data：返回数据（json对象）
+	// 		if(data != null){
+	// 			userRole.html("");
+	// 			var options = "<option value=\"0\">请选择</option>";
+	// 			for(var i = 0; i < data.length; i++){
+	// 				//alert(data[i].id);
+	// 				//alert(data[i].roleName);
+	// 				options += "<option value=\""+data[i].id+"\">"+data[i].roleName+"</option>";
+	// 			}
+	// 			userRole.html(options);
+	// 		}
+	// 	},
+	// 	error:function(data){//当访问时候，404，500 等非200的错误状态码
+	// 		validateTip(userRole.next(),{"color":"red"},imgNo+" 获取用户角色列表error",false);
+	// 	}
+	// });
+	//
 	
 	
 	/*
@@ -57,32 +57,32 @@ $(function(){
 	 * 失焦\获焦
 	 * jquery的方法传递
 	 */
-	userCode.bind("blur",function(){
-		//ajax后台验证--userCode是否已存在
-		//user.do?method=ucexist&userCode=**
-		$.ajax({
-			type:"GET",//请求类型
-			url:path+"/jsp/user.do",//请求的url
-			data:{method:"ucexist",userCode:userCode.val()},//请求参数
-			dataType:"json",//ajax接口（请求url）返回的数据类型
-			success:function(data){//data：返回数据（json对象）
-				if(data.userCode == "exist"){//账号已存在，错误提示
-					validateTip(userCode.next(),{"color":"red"},imgNo+ " 该用户账号已存在",false);
-				}else{//账号可用，正确提示
-					validateTip(userCode.next(),{"color":"green"},imgYes+" 该账号可以使用",true);
-				}
-			},
-			error:function(data){//当访问时候，404，500 等非200的错误状态码
-				validateTip(userCode.next(),{"color":"red"},imgNo+" 您访问的页面不存在",false);
-			}
-		});
-		
-		
-	}).bind("focus",function(){
-		//显示友情提示
-		validateTip(userCode.next(),{"color":"#666666"},"* 用户编码是您登录系统的账号",false);
-	}).focus();
-	
+	// userCode.bind("blur",function(){
+	// 	//ajax后台验证--userCode是否已存在
+	// 	//user.do?method=ucexist&userCode=**
+	// 	$.ajax({
+	// 		type:"GET",//请求类型
+	// 		url:path+"/jsp/user.do",//请求的url
+	// 		data:{method:"ucexist",userCode:userCode.val()},//请求参数
+	// 		dataType:"json",//ajax接口（请求url）返回的数据类型
+	// 		success:function(data){//data：返回数据（json对象）
+	// 			if(data.userCode == "exist"){//账号已存在，错误提示
+	// 				validateTip(userCode.next(),{"color":"red"},imgNo+ " 该用户账号已存在",false);
+	// 			}else{//账号可用，正确提示
+	// 				validateTip(userCode.next(),{"color":"green"},imgYes+" 该账号可以使用",true);
+	// 			}
+	// 		},
+	// 		error:function(data){//当访问时候，404，500 等非200的错误状态码
+	// 			validateTip(userCode.next(),{"color":"red"},imgNo+" 您访问的页面不存在",false);
+	// 		}
+	// 	});
+	//
+	//
+	// }).bind("focus",function(){
+	// 	//显示友情提示
+	// 	validateTip(userCode.next(),{"color":"#666666"},"* 用户编码是您登录系统的账号",false);
+	// }).focus();
+	//
 	userName.bind("focus",function(){
 		validateTip(userName.next(),{"color":"#666666"},"* 用户名长度必须是大于1小于10的字符",false);
 	}).bind("blur",function(){
@@ -139,7 +139,7 @@ $(function(){
 		}
 	});
 	
-	userRole.bind("focus",function(){
+/*	userRole.bind("focus",function(){
 		validateTip(userRole.next(),{"color":"#666666"},"* 请选择用户角色",false);
 	}).bind("blur",function(){
 		if(userRole.val() != null && userRole.val() > 0){
@@ -147,12 +147,12 @@ $(function(){
 		}else{
 			validateTip(userRole.next(),{"color":"red"},imgNo + " 请重新选择用户角色",false);
 		}
-	});
+	});*/
 	
 	addBtn.bind("click",function(){
-		if(userCode.attr("validateStatus") != "true"){
+		/*if(userCode.attr("validateStatus") != "true"){
 			userCode.blur();
-		}else if(userName.attr("validateStatus") != "true"){
+		}else*/ if(userName.attr("validateStatus") != "true"){
 			userName.blur();
 		}else if(userPassword.attr("validateStatus") != "true"){
 			userPassword.blur();
@@ -162,9 +162,9 @@ $(function(){
 			birthday.blur();
 		}else if(phone.attr("validateStatus") != "true"){
 			phone.blur();
-		}else if(userRole.attr("validateStatus") != "true"){
+		}/*else if(userRole.attr("validateStatus") != "true"){
 			userRole.blur();
-		}else{
+		}*/else{
 			if(confirm("是否确认提交数据")){
 				$("#userForm").submit();
 			}

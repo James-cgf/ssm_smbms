@@ -11,6 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--    扫描注解包-->
     <context:component-scan base-package="cn.smbms.controller"/>
+    <!--    提供最注解的支持-->
     <mvc:annotation-driven></mvc:annotation-driven>
 
 
@@ -20,7 +21,22 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-<!--配置静态文件  mapping是请求路径的前缀，location是真实地址-->
+    <!--配置静态文件  mapping是请求路径的前缀，location是真实地址-->
     <mvc:resources mapping="/statics/**" location="/statics/"/>
 
+    <!-- springmvc提供的简单异常处理器 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--        &lt;!&ndash; 定义默认的异常处理页面 &ndash;&gt;-->
+<!--        <property name="defaultErrorView" value="/WEB-INF/jsp/error.jsp"/>-->
+<!--        &lt;!&ndash; 定义异常处理页面用来获取异常信息的变量名，也可不定义，默认名为exception &ndash;&gt;-->
+<!--        <property name="exceptionAttribute" value="ex"/>-->
+<!--        &lt;!&ndash; 定义需要特殊处理的异常，这是重要点 &ndash;&gt;-->
+        <property name="exceptionMappings">
+            <props>
+                <!--error为逻辑试图名（返回页面）-->
+                <prop key="java.lang.RuntimeException">error</prop>
+            </props>
+            <!-- 还可以定义其他的自定义异常 -->
+        </property>
+    </bean>
 </beans>
